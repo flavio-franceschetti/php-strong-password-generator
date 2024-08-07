@@ -36,7 +36,7 @@ if(isset($_GET['pswlength']) && !empty($_GET['pswlength'])) {
 ?>
 
 <!-- body dell'html -->
-<body class="d-flex align-items-center justify-content-center bg-dark">
+<body class="d-flex align-items-center justify-content-center bg-light">
     <div class="container">
         <!-- titolo e sottotitolo -->
         <div class="text-center my-5">
@@ -56,14 +56,14 @@ if(isset($_GET['pswlength']) && !empty($_GET['pswlength'])) {
             <div class="d-flex gap-4">
                 <span>Consenti ripetizioni: </span>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="allowRepetitions" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
+                    <input class="form-check-input" type="radio" name="allowRepetitions" value="si" id="flexRadioDefault1" checked>
+                    <label class="form-check-label" for="allowRepetitions1">
                         Si
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="allowRepetitions" id="flexRadioDefault2" checked>
-                    <label class="form-check-label" for="flexRadioDefault2">
+                    <input class="form-check-input" type="radio" name="allowRepetitions" value="no" id="flexRadioDefault2" >
+                    <label class="form-check-label" for="allowRepetitions2">
                         No
                     </label>
                 </div>
