@@ -1,13 +1,15 @@
 <?php 
 
-function generateRandomPassword($psw_length){
-// array dei vari caratteri per generare le password
-  $characters_array = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789!?&%$<>^+-*/()[]{}@#_=";
+// funzione per generare la password random prendendo come parametri una lunghezza e una lista di caratteri
+function generateRandomPassword($psw_length, $charList){
+  // variabile per innserire la password generata
   $randomPsw = '';
-  $characters_length = strlen($characters_array);
-  
+  //a $characters_lenght viene assegnata la lunghezza della lista di caratteri per l'estrazione casuale
+  $characters_length = strlen($charList);
+  //ciclo basato sulla lunghezza della password che deve essere inserita dall'utente
   for($i = 0; $i < $psw_length; $i++ ){
-    $randomPsw .= $characters_array[random_int(0, $characters_length - 1)];
+    $randomPsw .= $charList[random_int(0, $characters_length - 1)];
   }
+  //la funzione ritorna la password generata
   return $randomPsw;
   }

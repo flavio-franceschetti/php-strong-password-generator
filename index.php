@@ -2,17 +2,33 @@
 include __DIR__ . '/function.php';
 include __DIR__ . '/partials/head.php';
 
-if(isset($_GET['pswlength']) && !empty($_GET['pswlength'])) {
+// array dei vari caratteri per generare le password
+$characters_array = [
+'abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ', 
+'0123456789',
+'!?&%$<>^+-*/()[]{}@#_='
+];
 
+//array con tutti i caratteri insieme
+$all_characters = 'abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789!?&%$<>^+-*/()[]{}@#_=';
+
+//se la lunghezza è stata inserita
+if(isset($_GET['pswlength']) && !empty($_GET['pswlength'])) {
+// ed è compresa fra 8 e 32
     if($_GET['pswlength'] >= 8 && $_GET['pswlength'] <= 32){
+        //apre la sessione
         session_start();
-        $response = generateRandomPassword($_GET['pswlength']);
+        // genero la password
+        $response = generateRandomPassword($_GET['pswlength'], $all_characters);
+        // scrivo la psw nella sessione
         $_SESSION['response'] = $response;
+        //reindirizzo alla pagina per mostrare la password
         header('Location: ./landing.php');
     }else{
+        //se la password inserita non è compresa fra 8 e 32 allora esce questo messaggio di errore 
         $output = 'Errore inserisci un numero fra 8 e 32!!!';
     }
-
+//se il valore della lunghezza del messaggio ancora non è stato inserito viene visualizzato il messaggio sottostante
 } else{
     $output = 'Inserisci un numero fra 8 e 32 per generare una password random';
 }
