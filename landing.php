@@ -3,7 +3,13 @@ include __DIR__ . '/partials/head.php';
 
 session_start();
 
-$psw = $_SESSION['response'];
+//effettuo un controllo se la password è stata settata nella sessione allora la stampo altrimenti reindirizzo all'index.php
+if(isset($_SESSION['response'])){
+    $psw = $_SESSION['response'];
+} else{
+    header('Location: ./index.php');
+}
+
 ?>
 
 <body class="bg-dark">

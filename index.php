@@ -48,8 +48,29 @@ if(isset($_GET['pswlength']) && !empty($_GET['pswlength'])) {
         <div class="text-white p-3 bg-success"> <?php echo $output ?></div>
       
         <form action="index.php" method="GET" class="bg-light p-3 my-4">
-            <span>Lunghezza password:</span>
-            <input type="number" name="pswlength" value="pswlength"><br>
+            <div class="mb-3">
+                <span>Lunghezza password:</span>
+                <input type="number" name="pswlength" value="pswlength"><br>
+            </div>
+
+            <div class="d-flex gap-4">
+                <span>Consenti ripetizioni: </span>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="allowRepetitions" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Si
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="allowRepetitions" id="flexRadioDefault2" checked>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        No
+                    </label>
+                </div>
+            </div>
+            
+            
+
             <div class="mt-3">
                 <button type="submit" class="btn btn-primary">Invia</button>
                 <button type="reset" class="btn btn-secondary">Annulla</button>
